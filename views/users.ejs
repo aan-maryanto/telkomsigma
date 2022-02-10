@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; width: 100%;">
+        <div style="text-align: left;">
+            <h3>Username : <%= data.username %></h3>
+            <h3>Fullname : <%= data.fullname %></h3>
+            <!-- <p><%= data.aplikasi %></p> -->
+            <table width="100%">
+                <thead>
+                    <th>ID</th>
+                    <th>Nama Aplikasi</th>
+                    <th>Role</th>
+                </thead>
+                <tbody>
+                    <% for(var i=0; i < (data.aplikasi).length ; i++ ) { %>
+                    <tr>
+                        <td><%= data.aplikasi[i]['id_aplikasi'] %></td>
+                        <td><%= data.aplikasi[i]['nama_aplikasi'] %></td>
+                        <td><%= data.aplikasi[i]['roles'].reduce((a, b) => `${a} ${b.nama_role},`,"") %></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
